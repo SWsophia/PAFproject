@@ -30,10 +30,14 @@ export class RegisterComponent implements OnInit {
   onSubmit() {
 
     const registerPayload = this.registerForm?.value as RegisterPayload
+    console.log(registerPayload)
 
-    this.authService.register(registerPayload).subscribe(() =>{
-      console.log("register result")
-    })
+    this.authService.register(registerPayload).pipe()
+    .subscribe(() => {
+      console.log('register success')},
+      error => {
+      console.log('register failed')
+      })
   }
 
 }
