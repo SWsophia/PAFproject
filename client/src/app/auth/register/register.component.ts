@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {RegisterPayload} from "../register-payload";
 import {AuthService} from "../auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-register',
@@ -13,7 +14,8 @@ export class RegisterComponent implements OnInit {
   registerForm!: FormGroup
 
 
-  constructor(private formBuilder:FormBuilder, private authService: AuthService) {
+  constructor(private formBuilder:FormBuilder, private authService: AuthService,
+              private router:Router) {
 
   }
 
@@ -29,12 +31,13 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
 
-    const registerPayload = this.registerForm?.value as RegisterPayload
+    const registerPayload = this.registerForm.value as RegisterPayload
     console.log(registerPayload)
 
     this.authService.register(registerPayload).pipe()
     .subscribe(() => {
-      console.log('register success')},
+      console.log('register success')
+      this.router.navigateByUrl('/register-success')},
       error => {
       console.log('register failed')
       })

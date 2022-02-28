@@ -3,6 +3,7 @@ package ibf.paf.blogproject.controllers;
 import ibf.paf.blogproject.dto.LoginRequest;
 import ibf.paf.blogproject.dto.RegisterRequest;
 import ibf.paf.blogproject.services.AuthService;
+import ibf.paf.blogproject.services.AuthenticationResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,8 +24,10 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestBody LoginRequest loginRequest) {
-       return authService.login(loginRequest);
+//    public String login(@RequestBody LoginRequest loginRequest) {
+//       return authService.login(loginRequest);
+    public AuthenticationResponse login(@RequestBody LoginRequest loginRequest) {
+        return authService.login(loginRequest);
 
     }
 }

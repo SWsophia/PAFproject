@@ -16,6 +16,7 @@ import { MaterialModule } from "./material/material.module"
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
+import {NgxWebstorageModule} from "ngx-webstorage";
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import {MatInputModule} from "@angular/material/input";
   imports: [
     BrowserModule,
     AppRoutingModule,
+    NgxWebstorageModule.forRoot(),
     MaterialModule,
     MatFormFieldModule,
     MatInputModule,
@@ -36,7 +38,9 @@ import {MatInputModule} from "@angular/material/input";
     FormsModule,
       ReactiveFormsModule,
     RouterModule.forRoot([
-      {path: 'register',component:RegisterComponent}
+      {path: 'register',component:RegisterComponent},
+      {path: 'login', component:LoginComponent},
+      {path: 'register-success', component:RegisterSuccessComponent}
     ]),
     HttpClientModule,
     BrowserAnimationsModule
