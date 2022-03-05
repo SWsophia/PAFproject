@@ -10,13 +10,19 @@ import { RegisterSuccessComponent } from './auth/register-success/register-succe
 
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {RouterModule} from "@angular/router";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from "./material/material.module"
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {NgxWebstorageModule} from "ngx-webstorage";
+import { HomeComponent } from './home/home.component';
+import { AddPostComponent } from './add-post/add-post.component';
+import {EditorModule} from "@tinymce/tinymce-angular";
+import {HttpClientInterceptor} from "./http-client-interceptor";
+import { PostComponent } from './post/post.component';
+import {AuthGuard} from "./auth.guard";
 
 
 @NgModule({
@@ -25,11 +31,15 @@ import {NgxWebstorageModule} from "ngx-webstorage";
     HeaderComponent,
     RegisterComponent,
     LoginComponent,
-    RegisterSuccessComponent
+    RegisterSuccessComponent,
+    HomeComponent,
+    AddPostComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    EditorModule,
     NgxWebstorageModule.forRoot(),
     MaterialModule,
     MatFormFieldModule,
@@ -38,14 +48,18 @@ import {NgxWebstorageModule} from "ngx-webstorage";
     FormsModule,
       ReactiveFormsModule,
     RouterModule.forRoot([
+      {path:'', component:HomeComponent},
       {path: 'register',component:RegisterComponent},
+      {path: 'post/:id',component:PostComponent},
       {path: 'login', component:LoginComponent},
-      {path: 'register-success', component:RegisterSuccessComponent}
+      {path: 'register-success', component:RegisterSuccessComponent},
+      {path: 'home', component:HomeComponent},
+      {path: 'add-post', component:AddPostComponent, canActivate:[AuthGuard]}
     ]),
     HttpClientModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpClientInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

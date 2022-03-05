@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {LoginPayload} from "../login-payload";
 import {AuthService} from "../auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,8 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup
 
   constructor(private fb:FormBuilder,
-              private  authSrv:AuthService) { }
+              private authSrv:AuthService,
+              private router:Router) { }
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -25,13 +27,14 @@ export class LoginComponent implements OnInit {
 
   onSubmit(){
     const payload = this.loginForm.value as LoginPayload
-    // const username = payload.username
-    // const password = payload.password
+    console.log(">>>>userlogin payload: ",payload)
+
     this.authSrv.login(payload).subscribe(result => {
       if(result) {
-        console.log('login success')
+        console.log('login success',result)
+        this.router.navigateByUrl('/home')
       }else {
-        console.log("Login failed")
+        console.log("Login failed",result)
       }
     })
   }

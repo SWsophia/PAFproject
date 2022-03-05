@@ -1,18 +1,24 @@
 .header {
   padding: 5px 20px;
   background: #fcfcfc;
-  font-family: baskerville-urw;
 }
 
 .title{
+  font-family: baskerville-urw;
   color: #222;
   text-decoration: none;
 }
 
-.login, .register {
-  font-family: baskerville-urw;
+.new-post, .login, .register, .logout{
+  font-family: Arial;
+  font-size: small;
   float: right;
   text-decoration: none;
   color: #222;
   padding-top: 10px;
+}
+
+.logout:hover, .new-post:hover {
+  color: aliceblue;
+  text-decoration: none;
 }
