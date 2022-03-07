@@ -3,14 +3,14 @@
     <div class="row" *ngFor="let post of posts | async">
       <div class="blogpost">
         <h3>
-          <a href="/post/{{post.id}}" class="blog-title">{{post.title}}</a>
+          <a type="button" href="/post/{{post.id}}" class="blog-title">{{post.title}}</a>
         </h3>
         <div>
-          <i class="fas fa-user" ></i> Post By: <p font-style="italic"> {{post.username}}</p>
+          <i class="fas fa-user" ></i> Post By: <p> {{post.username}}</p>
         </div>
-        <p [innerHTML]="post.content"></p>
+        <p innerHTML="post.content"> </p>
         <div>
-          <a type="button" href="/post/{{post.id}}" class="read-more btn btn-default">Read More</a>
+          <a type="button" href="/post/{{post.id}}" class="blog-title">Read More</a>
         </div>
 
       </div>

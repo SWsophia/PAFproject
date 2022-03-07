@@ -18,8 +18,8 @@ public class WeatherService {
     private final String key;
 
     public WeatherService() {
-//        key = System.getenv("ENV_OPENWEATHERMAP_KEY");
-        key = "ad54ad6007baf81821292e2f18b27d90";
+        key = System.getenv("ENV_OPENWEATHERMAP_KEY");
+//        key = "ad54ad6007baf81821292e2f18b27d90";
     }
 
     public Weather getWeather(String city) {

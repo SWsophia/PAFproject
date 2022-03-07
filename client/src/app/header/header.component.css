@@ -1,6 +1,6 @@
 .header {
   padding: 5px 20px;
-  background: dodgerblue;
+  background: powderblue;
 }
 
 .title{
@@ -9,16 +9,24 @@
   text-decoration: none;
 }
 
-.new-post, .login, .register, .logout{
+.login, .register{
   font-family: Arial;
   font-size: small;
-  float: right;
+  float: left;
   text-decoration: none;
   color: #222;
   padding-top: 10px;
 }
 
-.logout:hover, .new-post:hover {
+.logout, .new-post{
+  font-family: Arial;
+  font-size: small;
+  float: bottom;
+  text-decoration: none;
+  color: #222;
+  padding-top: 10px;
+}
+.logout:hover, .new-post:hover, .login:hover, .register:hover {
   color: aliceblue;
   text-decoration: none;
 }
