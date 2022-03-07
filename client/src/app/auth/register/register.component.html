@@ -3,28 +3,28 @@
     <h2 class="h3 mb-3 font-weight-normal">Welcome</h2>
     <div class="form-group">
         <mat-label for="inputUsername" class="sr-only">Username</mat-label>
-        <input type="text" id="inputUsername" formControlName="username" class="form-control" placeholder="Username"
+        <input type="text" id="inputUsername" formControlName="username" class="form-control" placeholder="Username *"
                autofocus="">
     </div>
     <br>
     <div class="form-group">
       <mat-label for="inputEmail" class="sr-only">Email</mat-label>
-      <input type="text" id="inputEmail" formControlName="email" class="form-control" placeholder="Email"
+      <input type="text" id="inputEmail" formControlName="email" class="form-control" placeholder="Email *"
              autofocus="">
     </div>
     <br>
     <div class="form-group">
       <mat-label for="inputPassword" class="sr-only">Password</mat-label>
       <input type="password" id="inputPassword" formControlName="password" class="form-control"
-             placeholder="Password">
+             placeholder="Password *">
     </div>
     <br>
     <div class="form-group">
       <mat-label for="inputConfirmPassword" class="sr-only">Password</mat-label>
       <input type="password" id="inputConfirmPasswordPassword" formControlName="confirmPassword"
-             class="form-control" placeholder="Confirm Password">
+             class="form-control" placeholder="Confirm Password *">
     </div>
     <br>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="registerForm.invalid">Sign up</button>
   </form>
 </div>

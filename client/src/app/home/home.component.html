@@ -6,13 +6,13 @@
           <a href="/post/{{post.id}}" class="blog-title">{{post.title}}</a>
         </h3>
         <div>
-          <i class="fas fa-user"></i> Author: <p> {{post.username}}</p>
+          <i class="fas fa-user" ></i> Post By: <p font-style="italic"> {{post.username}}</p>
         </div>
         <p [innerHTML]="post.content"></p>
         <div>
           <a type="button" href="/post/{{post.id}}" class="read-more btn btn-default">Read More</a>
         </div>
-        <hr>
+
       </div>
       <hr>
     </div>

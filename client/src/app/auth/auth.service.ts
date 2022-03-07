@@ -31,7 +31,7 @@ export class AuthService {
   }
 
   logout() {
-    this.localStorageService.clear('authenticationToken');
+    // this.localStorageService.clear('authenticationToken');
     this.localStorageService.clear('username');
   }
 }
